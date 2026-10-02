@@ -12,3 +12,20 @@
   --font-heading: "Syne", sans-serif;
   --font-sans: "Plus Jakarta Sans", sans-serif;
 }
+
+.swiper-pagination{
+  padding: 20px;
+}
+.swiper-pagination-bullet {
+  width: 8px !important;
+  height: 8px !important;
+  background-color: #cbd5e1 !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+  border-radius: 9999px !important;
+}
+
+.swiper-pagination-bullet-active {
+  width: 24px !important;
+  background-color: #0070f3 !important;
+}
