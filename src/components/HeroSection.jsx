@@ -18,7 +18,6 @@ const HeroSection = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  console.log(data);
   return (
     <main className="relative">
       <div className="flex w-3xs bottom-7 sm:bottom-5 justify-between m-auto z-10 absolute left-1/2 -translate-x-1/2 px-2">
@@ -35,37 +34,7 @@ const HeroSection = () => {
           <IoIosArrowForward />
         </button>
       </div>
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        slidesPerView={1}
-        onBeforeInit={(swiper) => {
-          swiper.params.navigation.prevEl = prevRef.current;
-          swiper.params.navigation.nextEl = nextRef.current;
-        }}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 1000, disableOnInteraction: false }}
-        loop={true}
-        className="h-150"
-      >
-        {data?.map((data) => {
-          return (
-            <SwiperSlide key={data._id}>
-              <div
-                className="bg-cover bg-center h-full brightness-50"
-                style={{
-                  backgroundImage: `url(${data?.Cover?.startsWith("https://") ? data.Cover : "https://4kwallpapers.com/images/walls/thumbs_3t/22064.jpg"})`,
-                }}
-              >
-                hy
-              </div>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+       
     </main>
   );
 };
