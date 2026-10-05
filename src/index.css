@@ -29,3 +29,12 @@
   width: 24px !important;
   background-color: #00e5ff !important;
 }
+
+.swiper-pagination {
+  pointer-events: none !important;
+}
+
+.swiper-pagination-bullet {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}

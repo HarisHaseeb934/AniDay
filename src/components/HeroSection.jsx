@@ -1,13 +1,15 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { getBig3 } from "../api/axiosInstance";
 import { useQuery } from "@tanstack/react-query";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import 'swiper/css/effect-fade';
 import { useRef } from "react";
+import HeroSectionMaterial from "./HeroSectionMaterial";
 
 const HeroSection = () => {
   const { data, isLoading, isError, error } = useQuery({
@@ -17,7 +19,7 @@ const HeroSection = () => {
 
   const prevBtn = useRef(null);
   const nextBtn = useRef(null);
-
+  console.log(data);
   return (
     <main className="relative">
       <div className="flex w-3xs bottom-7 sm:bottom-5 justify-between m-auto z-10 absolute left-1/2 -translate-x-1/2 px-2">
@@ -35,7 +37,7 @@ const HeroSection = () => {
         </button>
       </div>
       <Swiper
-        modules={[Navigation, Autoplay, Pagination]}
+        modules={[EffectFade, Navigation, Autoplay, Pagination]}
         onBeforeInit={(swiper) => {
           swiper.params.navigation.prevEl = prevBtn.current;
           swiper.params.navigation.nextEl = nextBtn.current;
@@ -44,22 +46,24 @@ const HeroSection = () => {
           prevEl: prevBtn.current,
           nextEl: nextBtn.current,
         }}
-        loop={true}
+        // loop={true}
         pagination={true}
-        autoplay={{ delay: 1000, disableOnInteraction: true }}
-        className="h-[600px]"
+        autoplay={{ delay: 3000, disableOnInteraction: true }}
+        effect={'fade'}
+        allowTouchMove={false}
+        className="h-100"
       >
         {data?.map((data) => {
-          console.log(data?.Cover)
           return (
             <SwiperSlide>
               <div
-                className="bg-cover bg-center w-full h-full"
+                className="bg-cover transition-all ease-in duration-75 bg-center w-full h-full"
                 style={{
                   backgroundImage: `url(${data?.Cover.startsWith("https://") ? data?.Cover : "https://4kwallpapers.com/images/walls/thumbs_3t/22064.jpg"})`,
                 }}
               >
-                hy
+                <div className="w-full h-full absolute inset-0 bg-linear-to-r from-black/85 from-10% via-black/75 via-40% to-black/35"></div>
+                <HeroSectionMaterial {...data}/>
               </div>
             </SwiperSlide>
           );
