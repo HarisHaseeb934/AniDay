@@ -7,7 +7,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import 'swiper/css/effect-fade';
+import "swiper/css/effect-fade";
 import { useRef } from "react";
 import HeroSectionMaterial from "./HeroSectionMaterial";
 
@@ -46,10 +46,10 @@ const HeroSection = () => {
           prevEl: prevBtn.current,
           nextEl: nextBtn.current,
         }}
-        // loop={true}
+        loop={true}
         pagination={true}
-        autoplay={{ delay: 3000, disableOnInteraction: true }}
-        effect={'fade'}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        effect={"fade"}
         allowTouchMove={false}
         className="h-100"
       >
@@ -63,7 +63,7 @@ const HeroSection = () => {
                 }}
               >
                 <div className="w-full h-full absolute inset-0 bg-linear-to-r from-black/85 from-10% via-black/75 via-40% to-black/35"></div>
-                <HeroSectionMaterial {...data}/>
+                <HeroSectionMaterial {...data} />
               </div>
             </SwiperSlide>
           );

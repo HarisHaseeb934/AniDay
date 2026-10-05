@@ -11,7 +11,7 @@ const HeroSectionMaterial = ({Name, Duration, Aired, epCount, DescripTion}) => {
             <span className="text-anime-cyan border border-anime-cyan py-1 px-2 text-[8px] sm:text-xs rounded-lg font-semibold bg-anime-bg">{Aired}</span>
             <span className="text-anime-cyan border border-anime-cyan py-1 px-2 text-[8px] sm:text-xs rounded-lg font-semibold bg-anime-bg">EP {epCount}</span>
         </div>
-        <p className="text-anime-text relative z-20 line-clamp-[3/5] text-xs md:text-sm lg:text-base">{DescripTion.length > 250 ? DescripTion.slice(0,250) + "...": DescripTion}</p>
+        <p className="text-anime-text relative z-20 line-clamp-[3/5] text-xs md:text-sm lg:text-base">{DescripTion.length > 200 ? DescripTion.slice(0,250) + "...": DescripTion}</p>
         <div className="flex gap-4">
             <button className="cursor-pointer text-white font-bold bg-anime-cyan px-4 md:px-7 py-1 md:py-2 lg:py-3 rounded-3xl text-[10px] sm:text-sm flex items-center gap-2"><FaPlay/> Watch Now</button>
             {/* <button></button> */}
