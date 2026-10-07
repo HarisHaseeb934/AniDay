@@ -27,11 +27,17 @@ const LEGAL = [
 
 const Footer = () => {
   return (
-    <footer className="divide-y-2 bg-anime-bg text-white p-16">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+    <footer className="divide-y-1 divide-anime-cyan bg-anime-bg text-white p-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 pb-10">
         <div className="flex flex-col gap-5 sm:col-span-2 md:col-span-1">
-          <img src="bg-remove.png" alt="" className="w-25" />
-          <p className="">
+          <NavLink to={"/"}>
+            <img
+              src="bg-remove.png"
+              alt=""
+              className="w-12 sm:w-20 md:w-22 lg:w-25"
+            />
+          </NavLink>
+          <p className="text-xs md:text-base">
             The revolutionary anime streaming platform built by fans, for fans.
             Ad-free, open-source, and community-driven.
           </p>
@@ -40,14 +46,14 @@ const Footer = () => {
               className={`border-anime-cyan border rounded-full bg-anime-cyan group hover:bg-anime-text transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1`}
             >
               <FaGithub
-                className={`text-4xl text-anime-bg group-hover:text-anime-cyan`}
+                className={`text-anime-bg group-hover:text-anime-cyan text-lg md:text-2xl lg:text-4xl`}
               />
             </NavLink>
             <NavLink
               className={`border-anime-cyan border rounded-full bg-anime-cyan group hover:bg-anime-text transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1`}
             >
               <FaFacebook
-                className={`text-4xl text-anime-bg group-hover:text-anime-cyan`}
+                className={`text-anime-bg group-hover:text-anime-cyan text-lg md:text-2xl lg:text-4xl`}
               />
             </NavLink>
           </div>
@@ -56,6 +62,10 @@ const Footer = () => {
         <FooterLinks heading={`Community`} links={COMMUNITY} />
         <FooterLinks heading={`Legal`} links={LEGAL} />
       </div>
+      <p className="text-center text-slate-300 pt-6 text-xs md:text-base">
+        © 2025 AniDay. Built with ❤️ by anime fans worldwide. All rights
+        reserved.
+      </p>
     </footer>
   );
 };

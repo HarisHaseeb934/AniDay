@@ -10,16 +10,24 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import { useRef } from "react";
 import HeroSectionMaterial from "./HeroSectionMaterial";
+import Loading from "./Loading";
 
 const HeroSection = () => {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["big3"],
     queryFn: getBig3,
+    // gcTime: 1000,
+    // staleTime: 10
   });
 
   const prevBtn = useRef(null);
   const nextBtn = useRef(null);
-  console.log(data);
+  // console.log(data);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <main className="relative">
       <div className="flex w-3xs bottom-7 sm:bottom-5 justify-between m-auto z-10 absolute left-1/2 -translate-x-1/2 px-2">
@@ -51,13 +59,13 @@ const HeroSection = () => {
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         effect={"fade"}
         allowTouchMove={false}
-        className="h-100"
+        className="h-100 sm:h-120 md:h-130 lg:h-150"
       >
         {data?.map((data) => {
           return (
             <SwiperSlide>
               <div
-                className="bg-cover transition-all ease-in duration-75 bg-center w-full h-full"
+                className="bg-cover transition-all ease-in duration-75 bg-center w-full h-full flex items-center"
                 style={{
                   backgroundImage: `url(${data?.Cover.startsWith("https://") ? data?.Cover : "https://4kwallpapers.com/images/walls/thumbs_3t/22064.jpg"})`,
                 }}

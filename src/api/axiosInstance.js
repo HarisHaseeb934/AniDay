@@ -12,3 +12,8 @@ export const getBig3 = async() => {
     ])
     return responses?.map(res => res.value.data)
 }
+
+export const getAnimeEpisodes = async(id) =>{
+    const response = await api.get(`/v1/api/details/${id}`)
+    return response?.data;
+}
