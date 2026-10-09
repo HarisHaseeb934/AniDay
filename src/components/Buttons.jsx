@@ -5,13 +5,13 @@ const TAB_SIZE = 100;
 
 const Buttons = ({ episodes, currentEpisode, _id }) => {
   const [activeTab, setActiveTab] = useState(0);
-    
-  const TotalEpisodes = episodes.length;
+
+  const totalEpisodes = episodes.length;
   const tabs = [];
 
-  for (let start = 1; start <= TotalEpisodes; start += TAB_SIZE) {
-    const end = Math.min(start + TAB_SIZE - 1, TotalEpisodes);
-    tabs.push({ label: `${start}-${end}`, start, end });
+  for (let start = 1; start <= totalEpisodes; start += TAB_SIZE) {
+    const end = Math.min(start + TAB_SIZE - 1, totalEpisodes);
+    tabs.push({ label: `${start} - ${end}`, start, end });
   }
 
   const activeRange = tabs[activeTab];
@@ -20,26 +20,27 @@ const Buttons = ({ episodes, currentEpisode, _id }) => {
   );
 
   return (
-    <aside>
-      {tabs?.map((tab, i) => {
-        return (
-          <button
-            key={i}
-            onClick={() => setActiveTab(i)}
-            className={` ${i === activeTab ? "bg-yellow-300" : "bg-red-500"}`}
-          >
-            {tab.label}
-          </button>
-        );
-      })}
-      <div>
-        {currentTabEpisodes.map((episode) => {
+    <aside className="w-2xs">
+      <div className="flex overflow-x-auto scrollbar-thumb-sky-700 scrollbar-track-anime-bg gap-2">
+        {tabs?.map((tab, i) => {
+          return (
+            <button
+              key={i}
+              onClick={() => setActiveTab(i)}
+              className={` ${i === activeTab ? "bg-anime-cyan" : "bg-anime-surface"} text-nowrap text-white px-3 text-sm py-1 font-semibold rounded-xs`}
+            >
+              {tab.label}
+            </button>
+          );
+        })}
+      </div>
+      <div className="grid grid-cols-5 gap-2 rounded-lg">
+        {currentTabEpisodes.map((episode, i) => {
           return (
             <NavLink
+              key={i}
               to={`/AniPlayer/${_id}?episode=${episode.ep}`}
-              className={
-                currentEpisode == episode.ep ? "bg-red-200" : "bg-yellow-100"
-              }
+              className={`${currentEpisode == episode.ep ? "bg-anime-cyan" : "bg-anime-surface"} text-white text-xs flex items-center p-1 justify-center font-semibold`}
             >
               {episode.ep}
             </NavLink>
