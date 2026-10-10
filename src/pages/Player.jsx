@@ -7,8 +7,9 @@ import Buttons from "../components/Buttons";
 export const Player = () => {
   const { id } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
+
   const currentEpisode = searchParams.get("episode") || 1;
-  console.log("episode" + currentEpisode);
+
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["anime", id],
     queryFn: () => getAnimeEpisodes(id),
@@ -24,8 +25,8 @@ export const Player = () => {
       : []),
   ];
 
-  console.log("Episodes", episodes);
-  console.log(episodes[parseInt(currentEpisode) - 1]);
+  console.log(data)
+
   return (
     <div className=" bg-anime-bg">
       <div className="m-auto w-[90%] flex">
@@ -41,8 +42,11 @@ export const Player = () => {
             className="aspect-video w-full"
             allow="fullscreen"
           ></iframe>
+          <div className="bg-anime-surface">
+            <h1></h1>
+          </div>
         </div>
-        {/* <div className="min-w-xs"></div> */}
+        {/* <div className="min-w-xs"> <Details/> </div> */}
       </div>
     </div>
   );

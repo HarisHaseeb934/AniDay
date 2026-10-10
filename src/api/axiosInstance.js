@@ -17,3 +17,8 @@ export const getAnimeEpisodes = async(id) =>{
     const response = await api.get(`/v1/api/details/${id}`)
     return response?.data;
 }
+
+export const getAnimeDetails = async(id) => {
+    const response = await api.get(`/anime/api/details/${id}`)
+    return response?.data
+}
