@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const TAB_SIZE = 100;
 
@@ -20,8 +21,9 @@ const Buttons = ({ episodes, currentEpisode, _id }) => {
   );
 
   return (
-    <aside className="w-2xs">
-      <div className="flex overflow-x-auto scrollbar-thumb-sky-700 scrollbar-track-anime-bg gap-2">
+    <aside className="w-full md:w-2xs bg-[#0a0c11] p-5 order-2 md:order-1">
+      <h1 className="text-anime-text font-bold my-2 flex items-center gap-1 "><GiHamburgerMenu className="text-sky-700 text-xl"/>Episode</h1>
+      <div className="flex overflow-x-auto scrollbar-thumb-sky-700 scrollbar-track-anime-bg gap-2 my-3">
         {tabs?.map((tab, i) => {
           return (
             <button

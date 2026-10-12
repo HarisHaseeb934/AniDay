@@ -1,10 +1,15 @@
 import { useParams, useSearchParams } from "react-router-dom";
-import { getAnimeEpisodes } from "../api/axiosInstance";
+import { getAnimeEpisodeAndDetail } from "../api/axiosInstance";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../components/Loading";
 import Buttons from "../components/Buttons";
 
+import { useState } from "react";
+import EpisodeTab from "../components/EpisodeTab";
+import Details from "../components/Details";
+
 export const Player = () => {
+  const [language, setLanguage] = useState("dub");
   const { id } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -12,9 +17,11 @@ export const Player = () => {
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["anime", id],
-    queryFn: () => getAnimeEpisodes(id),
+    queryFn: () => getAnimeEpisodeAndDetail(id),
     staleTime: 5000,
   });
+
+  console.log(data);
 
   const episodes = [
     ...(data?.local?.link !== undefined
@@ -25,29 +32,35 @@ export const Player = () => {
       : []),
   ];
 
-  console.log(data)
+  const episode = episodes[parseInt(currentEpisode) - 1]?.src?.replace(
+    "src=",
+    "",
+  );
+  const episodeLang = episode?.replace(/sub|dub/g, language);
+
+  console.log(data);
 
   return (
     <div className=" bg-anime-bg">
-      <div className="m-auto w-[90%] flex">
+      <div className="m-auto w-full max-w-[90%] flex flex-col md:flex-row ">
         <Buttons episodes={episodes} currentEpisode={currentEpisode} _id={id} />
-        {/* <iframe src={episodes[currentEpisode + 1].src.replace("src=", "")} frameborder="0"></iframe> */}
-        <div className="w-full max-w-5xl">
+        <div className="w-full  order-1 md:order-2">
           <iframe
-            src={episodes[parseInt(currentEpisode) - 1]?.src?.replace(
-              "src=",
-              "",
-            )}
+            src={episodeLang}
             frameborder="0"
             className="aspect-video w-full"
             allow="fullscreen"
           ></iframe>
-          <div className="bg-anime-surface">
-            <h1></h1>
-          </div>
+          <EpisodeTab
+            data={data}
+            currentEpisode={currentEpisode}
+            language={language}
+            setLanguage={setLanguage}
+            _id={id}
+          />
         </div>
-        {/* <div className="min-w-xs"> <Details/> </div> */}
       </div>
+      <Details data = {data}/>
     </div>
   );
 };

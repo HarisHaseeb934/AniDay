@@ -8,7 +8,7 @@ const Header = () => {
         <NavLink to={'/'} className="flex items-center gap-3">
           <div className="aspect-square">
             <img
-              src="bg-remove.png"
+              src="./bg-remove.png"
               alt="Voyager"
               className="w-7 sm:w-9 md:w-13 flex-1"
             />
