@@ -16,7 +16,7 @@ const HeroSectionMaterial = ({Name, Duration, Aired, epCount, DescripTion, _id})
         <div className="flex gap-4">
             <NavLink to={`/AniPlayer/${_id}?episode=1`} className="cursor-pointer text-white font-bold bg-anime-cyan px-4 md:px-7 py-1 md:py-2 lg:py-3 rounded-3xl text-[10px] sm:text-sm flex items-center gap-2"><FaPlay/> Watch Now</NavLink>
             {/* <button></button> */}
-            <button className="cursor-pointer text-white font-bold px-4 md:px-7 py-1 md:py-2 lg:py-3 rounded-3xl text-[10px] sm:text-sm border flex items-center gap-2"><IoMdInformationCircleOutline className="text-lg"/>Details</button>
+            <NavLink to={`/AniPlayer/${_id}/?episode=1#details`} className="cursor-pointer text-white font-bold px-4 md:px-7 py-1 md:py-2 lg:py-3 rounded-3xl text-[10px] sm:text-sm border flex items-center gap-2"><IoMdInformationCircleOutline className="text-lg"/>Details</NavLink>
         </div>
     </div>
   )

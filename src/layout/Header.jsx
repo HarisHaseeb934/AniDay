@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className="bg-anime-surface">
       <nav className="px-6 py-3 flex items-center justify-between sm:justify-normal">
-        <NavLink to={'/'} className="flex items-center gap-3">
+        <NavLink to={"/"} className="flex items-center gap-3">
           <div className="aspect-square">
             <img
               src="./bg-remove.png"
@@ -22,6 +22,7 @@ const Header = () => {
             </p>
           </div>
         </NavLink>
+
         <SearchBox />
       </nav>
     </header>

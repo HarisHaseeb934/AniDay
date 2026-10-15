@@ -3,7 +3,7 @@ import { GrNotes } from "react-icons/gr";
 
 const Details = ({ data }) => {
   return (
-    <section className="w-full max-w-[90%] m-auto bg-anime-surface text-anime-text px-5 py-7 mt-5">
+    <section className="w-full max-w-[90%] m-auto bg-anime-surface text-anime-text px-5 py-7 mt-5" id="details">
       <h1 className="flex items-center gap-1 text-2xl font-bold">
         <IoInformationCircle className="text-anime-cyan text-2xl" />
         Details

@@ -1,15 +1,21 @@
-import { useParams, useSearchParams } from "react-router-dom";
+import {
+  replace,
+  useLocation,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import { getAnimeEpisodeAndDetail } from "../api/axiosInstance";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../components/Loading";
 import Buttons from "../components/Buttons";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EpisodeTab from "../components/EpisodeTab";
 import Details from "../components/Details";
 
 export const Player = () => {
-  const [language, setLanguage] = useState("dub");
+  const { hash } = useLocation();
+  const [language, setLanguage] = useState("sub");
   const { id } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -22,6 +28,23 @@ export const Player = () => {
   });
 
   console.log(data);
+
+  useEffect(() => {
+    
+    if(hash){
+      setTimeout(() => {
+        const id = hash.replace("#","")
+        const element = document.getElementById(id)
+        console.log(element)
+
+        element.scrollIntoView({
+          behavior: "smooth",
+        })
+      },100)
+
+
+    }
+  }, [hash])
 
   const episodes = [
     ...(data?.local?.link !== undefined
@@ -60,7 +83,7 @@ export const Player = () => {
           />
         </div>
       </div>
-      <Details data = {data}/>
+      <Details data={data} />
     </div>
   );
 };

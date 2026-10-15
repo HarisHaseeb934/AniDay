@@ -3,6 +3,7 @@ import AppLayout from "./layout/AppLayout";
 import Home from "./pages/Home";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Player } from "./pages/Player";
+import Sort from "./pages/Sort";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "/AniPlayer/:id",
         element: <Player />,
+      },
+      {
+        path: "/sort",
+        element: <Sort />,
       },
     ],
   },
