@@ -1,12 +1,11 @@
-import { getLatest } from "../api/axiosInstance"
-import AnimeDisplay from "../components/AnimeDisplay"
+import RecentlyAddedAnime from "../components/RecentlyAddedAnime"
 import HeroSection from "../components/HeroSection"
 
 const Home = () => {
   return (
     <section className="bg-[#06090f]">
         <HeroSection/>
-        <AnimeDisplay genre = "recent" page = {1} getAnime = {getLatest}/>
+        <RecentlyAddedAnime/>
     </section>
   )
 }
