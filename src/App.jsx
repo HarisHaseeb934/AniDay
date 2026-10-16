@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Player } from "./pages/Player";
 import Sort from "./pages/Sort";
+import Recent from "./pages/Recent";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/sort",
         element: <Sort />,
+      },
+      {
+        path: "/recent",
+        element: <Recent />,
       },
     ],
   },

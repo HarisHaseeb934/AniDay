@@ -3,7 +3,7 @@ import StarRating from "./StarRating";
 const AnimeCard = ({ Name, Cover, DescripTion, MALScore }) => {
   return (
     <div className="rounded-xl relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ease-in-out hove:li hover:border-anime-cyan hover:border">
-      <div class="absolute inset-0 bg-gradient-to-t from-cyan-300 to-slate-50 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-20"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-cyan-300 to-slate-50 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-20"></div>
 
       <div className="h-[250px] overflow-hidden">
         <img

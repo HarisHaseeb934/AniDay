@@ -16,8 +16,8 @@ const HeroSection = () => {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["big3"],
     queryFn: getBig3,
-    // gcTime: 1000,
-    // staleTime: 10
+    staleTime: 1000 * 60 * 60,
+    gcTime: 1000 * 60 * 60 * 2,
   });
 
   const prevBtn = useRef(null);

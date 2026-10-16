@@ -95,7 +95,7 @@ const SearchBox = () => {
                     onClick={() => handleNavigate(res?.Id)}
                   >
                     <div className="aspect-square">
-                      <img src={res?.Image} className="w-[50px] h-[70px] object-cover" />
+                      <img src={res?.Image} className="w-[50px] h-[70px] object-cover" loading={i < 4 ? "eager" : "lazy"} fetchpriority={i < 4 ? "high" : "low"}/>
                     </div>
                     <p className="text-anime-text text-[10px] sm:text-xs md:text-sm line-clamp-3">
                       {res?.Name}
