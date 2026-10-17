@@ -20,6 +20,10 @@ const router = createBrowserRouter([
         element: <Player />,
       },
       {
+        path: "/sort/:genre",
+        element: <Sort />,
+      },
+      {
         path: "/sort",
         element: <Sort />,
       },
