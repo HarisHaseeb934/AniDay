@@ -25,12 +25,12 @@ const RecentlyAddedAnime = ({ forHome = true }) => {
 
   const slicedData = forHome ? data?.slice(0, 10) : data;
   return (
-    <div className="max-w-[90%] w-full mx-auto py-10">
+    <div className="max-w-[90%] mx-auto py-10">
       <Heading text={"RECENT"} />
       <ul className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 justify-items-center">
         {slicedData?.map((anime, i) => {
           return (
-            <li key={i}>
+            <li key={i} className="w-full">
               <NavLink to={`/AniPlayer/${anime._id}?episode=1`}>
                 <AnimeCard {...anime} />
               </NavLink>

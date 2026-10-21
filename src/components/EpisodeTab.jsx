@@ -2,7 +2,7 @@ import { IoIosStar } from "react-icons/io";
 import { FaClock } from "react-icons/fa";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { IoInformationCircle } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const EpisodeTab = ({ data, currentEpisode, language, setLanguage, _id }) => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ const EpisodeTab = ({ data, currentEpisode, language, setLanguage, _id }) => {
           </button>
           <button
             onClick={() => handleNavigate(+1)}
-            disabled = {parseInt(currentEpisode) >= data?.local?.epCount}
+            disabled={parseInt(currentEpisode) >= data?.local?.epCount}
             className="flex items-center gap-2 md:px-3 md:py-1 px-2 lg:px-5 lg:py-2 text-xs sm:text-sm bg-anime-cyan hover:bg-purple-500 sm:rounded-md"
           >
             Next Episode
@@ -58,10 +58,13 @@ const EpisodeTab = ({ data, currentEpisode, language, setLanguage, _id }) => {
           </button>
         </div>
 
-        <button className="flex items-center gap-1 hover:bg-anime-text/20 px-2 md:px-3 md:py-1  lg:px-5 lg:py-2 text-sm rounded-md font-bold">
+        <a
+          href="#details"
+          className="flex items-center gap-1 hover:bg-anime-text/20 px-2 md:px-3 md:py-1  lg:px-5 lg:py-2 text-sm rounded-md font-bold"
+        >
           <IoInformationCircle className="text-anime-text text-xl" />
           Details
-        </button>
+        </a>
       </div>
     </div>
   );

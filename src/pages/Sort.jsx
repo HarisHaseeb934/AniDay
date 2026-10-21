@@ -6,11 +6,16 @@ import { NavLink, useParams } from "react-router-dom";
 import AnimeCard from "../components/AnimeCard";
 import Heading from "../components/Heading";
 
-const Sort = ({ forHome = false }) => {
-  const { genre } = useParams();
+const Sort = ({ forHome = false, recommendation }) => {
+  const { paramGenre } = useParams();
   const [ratefrom, setRateFrom] = useState(0);
   const [rateto, setRateto] = useState(10);
   const [page, setPage] = useState(1);
+
+  console.log("Param " + paramGenre)
+  console.log("Recommendation " + recommendation)
+
+  const genre = paramGenre || recommendation;
 
   const {
     data = [],
@@ -39,14 +44,17 @@ const Sort = ({ forHome = false }) => {
     <section className="bg-[#06090f] px-5">
       <div className="max-w-[90%] w-full mx-auto py-10">
         {!forHome && (
-          <div className="text-anime-cyan">
+          <div className="text-anime-cyan flex items-center gap-5">
+            <p><Heading text={'rating'}/></p>
             <select
-            value={ratefrom}
+              value={ratefrom}
+              id="rateFrom"
               onChange={(e) => {
-                if(Number(e.target.value) > rateto) return 
+                if (Number(e.target.value) > rateto) return;
                 setRateFrom(e.target.value);
                 setPage(1);
               }}
+              className="px-3 py-1 bg-anime-cyan text-anime-text hover:bg-purple-500"
             >
               {Array.from({ length: 10 }, (_, i) => i + 1).map((val, i) => (
                 <option key={i} value={val}>
@@ -54,13 +62,16 @@ const Sort = ({ forHome = false }) => {
                 </option>
               ))}
             </select>
+            <span>to</span>
             <select
-            value={rateto}
+              value={rateto}
+              id="rateTo"
               onChange={(e) => {
-                if(Number(e.target.value) < ratefrom) return 
+                if (Number(e.target.value) < ratefrom) return;
                 setRateto(e.target.value);
                 setPage(1);
               }}
+              className="px-3 py-1 bg-anime-cyan text-anime-text hover:bg-purple-500"
             >
               {Array.from({ length: 10 }, (_, i) => i + 1).map((val, i) => (
                 <option key={i} value={val}>
@@ -71,13 +82,13 @@ const Sort = ({ forHome = false }) => {
           </div>
         )}
 
-        <Heading text = {genre ? genre : 'All Anime'}/>
+        <Heading text={genre ? genre : "All Anime"} />
 
         <ul className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 justify-items-center">
           {slicedData?.map((anime, i) => {
             const { Name, ImagePath, MALScore } = anime;
             return (
-              <li key={i}>
+              <li key={i} className="max-w-full w-full">
                 <NavLink to={`/AniPlayer/${anime._id}?episode=1`}>
                   <AnimeCard
                     Name={Name}
@@ -93,7 +104,7 @@ const Sort = ({ forHome = false }) => {
         {forHome ? (
           <div className="text-center mt-10">
             <NavLink
-              to={"/sort"}
+              to={genre ? `/sort/${genre}` : `/sort`}
               className={`text-anime-text bg-anime-cyan py-2 px-3 hover:bg-purple-500`}
             >
               View All
@@ -117,9 +128,8 @@ const Sort = ({ forHome = false }) => {
             </button>
           </div>
         )}
-      {!forHome && <GenreButton />}
+        {!forHome && <GenreButton />}
       </div>
-
     </section>
   );
 };

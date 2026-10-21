@@ -12,6 +12,7 @@ import Buttons from "../components/Buttons";
 import { useEffect, useState } from "react";
 import EpisodeTab from "../components/EpisodeTab";
 import Details from "../components/Details";
+import Sort from "./Sort";
 
 export const Player = () => {
   const { hash } = useLocation();
@@ -84,6 +85,7 @@ export const Player = () => {
         </div>
       </div>
       <Details data={data} />
+      <Sort forHome = {true} recommendation={data?.local.Genres[0]} />
     </div>
   );
 };

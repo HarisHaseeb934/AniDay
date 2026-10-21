@@ -1,5 +1,6 @@
 import { IoInformationCircle } from "react-icons/io5";
 import { GrNotes } from "react-icons/gr";
+import { NavLink } from "react-router-dom";
 
 const Details = ({ data }) => {
   return (
@@ -43,7 +44,7 @@ const Details = ({ data }) => {
       <div className="flex gap-2 flex-wrap">
         <span className="text-anime-text font-normal text-sm ">Genres:</span>{" "}
          {data?.local.Genres.map((genre, i) => (
-          <button key={i} className="bg-anime-cyan rounded-2xl px-2 font-semibold">{genre}</button>
+          <NavLink to={`/sort/${genre}`} key={i} className="bg-anime-cyan rounded-2xl px-2 font-semibold">{genre}</NavLink>
         ))}
       </div>
       <div className="mt-5">

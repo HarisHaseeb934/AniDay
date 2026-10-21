@@ -9,14 +9,26 @@ const AnimeCard = ({ Name, Cover, DescripTion = "", MALScore }) => {
         <img
           src={Cover}
           alt=""
+          onError={(e) => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = 'fallback.png';
+          }}
           className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-300 ease-in-out"
         />
       </div>
       <div className="px-2 py-3 bg-[#000000]">
-        <h2 className="line-clamp-1 font-bold text-anime-text text-sm">{Name}</h2>
+        <h2 className="line-clamp-1 font-bold text-anime-text text-sm">
+          {Name}
+        </h2>
         <div className="flex gap-2">
           <p className="text-anime-gold text-sm">{MALScore}</p>
-          <p><StarRating initialRating={MALScore / 2} readOnly = {true} size={12}/></p>
+          <p>
+            <StarRating
+              initialRating={MALScore / 2}
+              readOnly={true}
+              size={12}
+            />
+          </p>
         </div>
         <p className="line-clamp-2 text-anime-text/50 text-xs">{DescripTion}</p>
       </div>
