@@ -5,11 +5,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Player } from "./pages/Player";
 import Sort from "./pages/Sort";
 import Recent from "./pages/Recent";
+import Loading from "./components/Loading";
+import ErrorPage from "./pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: "/",

@@ -26,7 +26,7 @@ const GENRES = [
 const GenreButton = () => {
   return (
     <div className="my-5">
-      <Heading text={"Browser Genre"} />
+      <Heading text={"Browse Genre"} />
       <div className=" bg-anime-cyan/5 p-5 rounded-2xl border border-anime-cyan/60">
         <div className="flex flex-wrap gap-2">
           {GENRES.map((genre, i) => {

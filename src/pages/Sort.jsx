@@ -5,6 +5,7 @@ import GenreButton from "../components/GenreButton";
 import { NavLink, useParams } from "react-router-dom";
 import AnimeCard from "../components/AnimeCard";
 import Heading from "../components/Heading";
+import Loading from "../components/Loading";
 
 const Sort = ({ forHome = false, recommendation }) => {
   const { paramGenre } = useParams();
@@ -12,8 +13,8 @@ const Sort = ({ forHome = false, recommendation }) => {
   const [rateto, setRateto] = useState(10);
   const [page, setPage] = useState(1);
 
-  console.log("Param " + paramGenre)
-  console.log("Recommendation " + recommendation)
+  console.log("Param " + paramGenre);
+  console.log("Recommendation " + recommendation);
 
   const genre = paramGenre || recommendation;
 
@@ -21,7 +22,6 @@ const Sort = ({ forHome = false, recommendation }) => {
     data = [],
     isLoading,
     isError,
-    error,
   } = useQuery({
     queryKey: ["sort", { genre, ratefrom, rateto, page }],
     queryFn: () => getSortData({ genre, ratefrom, rateto, page }),
@@ -38,51 +38,57 @@ const Sort = ({ forHome = false, recommendation }) => {
     });
   }, [page]);
 
+  if (isLoading) return <Loading />;
+  if (isError) return <p>Something Went Wrong</p>;
+
   const slicedData = forHome ? data[1]?.slice(0, 10) : data[1];
-  console.log(slicedData);
   return (
     <section className="bg-[#06090f] px-5">
       <div className="max-w-[90%] w-full mx-auto py-10">
         {!forHome && (
-          <div className="text-anime-cyan flex items-center gap-5">
-            <p><Heading text={'rating'}/></p>
-            <select
-              value={ratefrom}
-              id="rateFrom"
-              onChange={(e) => {
-                if (Number(e.target.value) > rateto) return;
-                setRateFrom(e.target.value);
-                setPage(1);
-              }}
-              className="px-3 py-1 bg-anime-cyan text-anime-text hover:bg-purple-500"
-            >
-              {Array.from({ length: 10 }, (_, i) => i + 1).map((val, i) => (
-                <option key={i} value={val}>
-                  {val}
-                </option>
-              ))}
-            </select>
-            <span>to</span>
-            <select
-              value={rateto}
-              id="rateTo"
-              onChange={(e) => {
-                if (Number(e.target.value) < ratefrom) return;
-                setRateto(e.target.value);
-                setPage(1);
-              }}
-              className="px-3 py-1 bg-anime-cyan text-anime-text hover:bg-purple-500"
-            >
-              {Array.from({ length: 10 }, (_, i) => i + 1).map((val, i) => (
-                <option key={i} value={val}>
-                  {val}
-                </option>
-              ))}
-            </select>
+          <div className="text-anime-cyan flex items-center gap-5 justify-between">
+            <div>
+              <Heading text={"rating"} />
+            </div>
+            <div className="flex items-center gap-5">
+              <select
+                value={ratefrom}
+                id="rateFrom"
+                onChange={(e) => {
+                  if (Number(e.target.value) > rateto) return;
+                  setRateFrom(e.target.value);
+                  setPage(1);
+                }}
+                className="px-3 py-1 bg-anime-cyan text-anime-text hover:bg-purple-500"
+              >
+                {Array.from({ length: 10 }, (_, i) => i + 1).map((val, i) => (
+                  <option key={i} value={val}>
+                    {val}
+                  </option>
+                ))}
+              </select>
+              <span>to</span>
+              <select
+                value={rateto}
+                id="rateTo"
+                onChange={(e) => {
+                  if (Number(e.target.value) < ratefrom) return;
+                  setRateto(e.target.value);
+                  setPage(1);
+                }}
+                className="px-3 py-1 bg-anime-cyan text-anime-text hover:bg-purple-500"
+              >
+                {Array.from({ length: 10 }, (_, i) => i + 1).map((val, i) => (
+                  <option key={i} value={val}>
+                    {val}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
         )}
 
-        <Heading text={genre ? genre : "All Anime"} />
+        <Heading text={genre ? genre : "Recommendation"} />
 
         <ul className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 justify-items-center">
           {slicedData?.map((anime, i) => {
@@ -109,6 +115,10 @@ const Sort = ({ forHome = false, recommendation }) => {
             >
               View All
             </NavLink>
+          </div>
+        ) : !slicedData || slicedData?.length === 0 ? (
+          <div className="flex justify-center items-center text-anime-cyan">
+            No Anime Exists for this "{genre}"
           </div>
         ) : (
           <div className="flex items-center justify-center text-white gap-5 mt-10">
