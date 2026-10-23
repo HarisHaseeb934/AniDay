@@ -1,17 +1,49 @@
 import StarRating from "./StarRating";
+import { FaHeart } from "react-icons/fa";
+import { CiHeart } from "react-icons/ci";
+import useFavourites from "../customeHooks/useFavourites";
 
-const AnimeCard = ({ Name, Cover, DescripTion = "", MALScore }) => {
+// const favourites = [{ _id: 1 }, { _id: 2 }, { _id: 3 }, { _id: 4 }, { _id: 5 }];
+
+const AnimeCard = ({ Name, Cover, DescripTion = "", MALScore, _id }) => {
+  const { favourties, setFavourites } = useFavourites();
+  const isFavourite = favourties.some((anime) => anime._id === Number(_id));
+
+  const handleFavourites = (e) => {
+    if (isFavourite) {
+      setFavourites((prev) => prev.filter((anime) => anime._id !== _id));
+    } else {
+      setFavourites((prev) => [
+        ...prev,
+        { Name, Cover, DescripTion: DescripTion, MALScore, _id },
+      ]);
+    }
+  };
+
   return (
     <div className="rounded-xl relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ease-in-out hove:li hover:border-anime-cyan hover:border">
       <div className="absolute inset-0 bg-gradient-to-t from-cyan-300 to-slate-50 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-20"></div>
-
+      <button
+        className={`absolute right-2 z-10 top-2 bg-anime-bg rounded-full flex items-center justify-center p-2 cursor-pointer`}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          handleFavourites();
+        }}
+      >
+        {isFavourite ? (
+          <FaHeart className="text-anime-primary text-lg" />
+        ) : (
+          <CiHeart className="text-anime-primary text-lg" />
+        )}
+      </button>
       <div className="h-[250px] overflow-hidden">
         <img
           src={Cover}
           alt=""
           onError={(e) => {
             e.currentTarget.onerror = null;
-            e.currentTarget.src = 'fallback.png';
+            e.currentTarget.src = "fallback.png";
           }}
           className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-300 ease-in-out"
         />

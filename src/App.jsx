@@ -7,12 +7,14 @@ import Sort from "./pages/Sort";
 import Recent from "./pages/Recent";
 import Loading from "./components/Loading";
 import ErrorPage from "./pages/ErrorPage";
+import Watchlist from "./pages/Watchlist";
+import { Favourites } from "./customeHooks/useFavourites";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -34,6 +36,10 @@ const router = createBrowserRouter([
         path: "/recent",
         element: <Recent />,
       },
+      {
+        path: "/watchlist",
+        element: <Watchlist />,
+      },
     ],
   },
 ]);
@@ -42,7 +48,9 @@ const App = () => {
   const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <Favourites>
+        <RouterProvider router={router} />
+      </Favourites>
     </QueryClientProvider>
   );
 };

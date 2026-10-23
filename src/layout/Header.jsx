@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import SearchBox from "../components/SearchBox";
+import { FaBookmark } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -22,8 +23,10 @@ const Header = () => {
             </p>
           </div>
         </NavLink>
-
         <SearchBox />
+        <NavLink to={`/watchlist`}>
+          <FaBookmark className="text-anime-cyan text-lg"/>
+        </NavLink>
       </nav>
     </header>
   );

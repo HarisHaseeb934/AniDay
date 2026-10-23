@@ -72,12 +72,16 @@ const SearchBox = () => {
             <RxCross2 className="text-lg text-anime-text  " />
           </button>
         )}
-        <button
+        {/* <button
           className="p-1 size-5 sm:size-7 flex items-center justify-center bg-anime-cyan rounded-full ml-2"
           type="submit"
         >
           <IoIosSearch className="text-lg text-anime-text  " />
-        </button>
+        </button> */}
+
+        <div className="p-1 size-5 sm:size-7 flex items-center justify-center bg-anime-cyan rounded-full ml-2">
+          <IoIosSearch className="text-lg text-anime-text  " />
+        </div>
       </form>
       {isOpen && debounce && (
         <div className="absolute w-full z-20 bg-anime-bg rounded-2xl">
@@ -95,7 +99,12 @@ const SearchBox = () => {
                     onClick={() => handleNavigate(res?.Id)}
                   >
                     <div className="aspect-square">
-                      <img src={res?.Image} className="w-[50px] h-[70px] object-cover" loading={i < 4 ? "eager" : "lazy"} fetchpriority={i < 4 ? "high" : "low"}/>
+                      <img
+                        src={res?.Image}
+                        className="w-[50px] h-[70px] object-cover"
+                        loading={i < 4 ? "eager" : "lazy"}
+                        fetchpriority={i < 4 ? "high" : "low"}
+                      />
                     </div>
                     <p className="text-anime-text text-[10px] sm:text-xs md:text-sm line-clamp-3">
                       {res?.Name}

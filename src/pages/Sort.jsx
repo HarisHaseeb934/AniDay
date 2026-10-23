@@ -92,7 +92,8 @@ const Sort = ({ forHome = false, recommendation }) => {
 
         <ul className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 justify-items-center">
           {slicedData?.map((anime, i) => {
-            const { Name, ImagePath, MALScore } = anime;
+            console.log(anime)
+            const { Name, ImagePath, MALScore, _id } = anime;
             return (
               <li key={i} className="max-w-full w-full">
                 <NavLink to={`/AniPlayer/${anime._id}?episode=1`}>
@@ -100,6 +101,7 @@ const Sort = ({ forHome = false, recommendation }) => {
                     Name={Name}
                     Cover={ImagePath}
                     MALScore={MALScore}
+                    _id={_id}
                   />
                 </NavLink>
               </li>
