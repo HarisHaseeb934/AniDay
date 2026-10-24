@@ -58,9 +58,7 @@ export const getLatest = async (currentPage = 1) => {
     let end = start - Page + 1;
     Pages.push({ start, end });
   }
-  // console.log(Pages)
   const activePage = Pages[currentPage - 1];
-  // console.log(activePage)
   const currentPageIds = idArray.filter(
     (id) => id <= activePage.start && activePage.end <= id,
   );
@@ -73,7 +71,6 @@ export const getLatest = async (currentPage = 1) => {
 };
 
 export const getSortData = async (filter) => {
-  console.log(filter);
   const response = await api.get(`/api/sort`, { params: filter });
   return response.data;
 };

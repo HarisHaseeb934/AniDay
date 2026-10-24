@@ -22,7 +22,6 @@ const HeroSection = () => {
 
   const prevBtn = useRef(null);
   const nextBtn = useRef(null);
-  // console.log(data);
 
   if (isLoading) {
     return <Loading />;

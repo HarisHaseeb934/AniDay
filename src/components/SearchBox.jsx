@@ -44,8 +44,6 @@ const SearchBox = () => {
     navigate(`/AniPlayer/${id}?episode=1`);
   };
 
-  console.log(data);
-
   return (
     <div
       className="px-1 relative py-1 sm:m-auto sm:w-sm md:w-lg lg:w-xl"

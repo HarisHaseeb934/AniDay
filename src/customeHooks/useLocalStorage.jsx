@@ -6,7 +6,7 @@ export const useLocalStorage = (key, initailValue) => {
       const items = localStorage.getItem(key);
       return items ? JSON.parse(items) : initailValue;
     } catch (error) {
-      console.log(error);
+      console.error(error);
       return initailValue;
     }
   });
@@ -15,7 +15,7 @@ export const useLocalStorage = (key, initailValue) => {
     try {
       localStorage.setItem(key, JSON.stringify(favourties));
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }, [key, favourties]);
 

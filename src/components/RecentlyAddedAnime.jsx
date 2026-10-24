@@ -29,7 +29,6 @@ const RecentlyAddedAnime = ({ forHome = true }) => {
       <Heading text={"RECENT"} />
       <ul className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 justify-items-center">
         {slicedData?.map((anime, i) => {
-          console.log(anime)
           return (
             <li key={i} className="w-full">
               <NavLink to={`/AniPlayer/${anime._id}?episode=1`}>

@@ -13,9 +13,6 @@ const Sort = ({ forHome = false, recommendation }) => {
   const [rateto, setRateto] = useState(10);
   const [page, setPage] = useState(1);
 
-  console.log("Param " + paramGenre);
-  console.log("Recommendation " + recommendation);
-
   const genre = paramGenre || recommendation;
 
   const {
@@ -92,7 +89,6 @@ const Sort = ({ forHome = false, recommendation }) => {
 
         <ul className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 justify-items-center">
           {slicedData?.map((anime, i) => {
-            console.log(anime)
             const { Name, ImagePath, MALScore, _id } = anime;
             return (
               <li key={i} className="max-w-full w-full">

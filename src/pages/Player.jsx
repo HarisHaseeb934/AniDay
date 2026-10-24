@@ -28,15 +28,12 @@ export const Player = () => {
     staleTime: 5000,
   });
 
-  console.log(data);
-
   useEffect(() => {
     
     if(hash){
       setTimeout(() => {
         const id = hash.replace("#","")
         const element = document.getElementById(id)
-        console.log(element)
 
         element.scrollIntoView({
           behavior: "smooth",
@@ -61,8 +58,6 @@ export const Player = () => {
     "",
   );
   const episodeLang = episode?.replace(/sub|dub/g, language);
-
-  console.log(data);
 
   return (
     <div className=" bg-anime-bg">

@@ -3,13 +3,11 @@ import { FaHeart } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import useFavourites from "../customeHooks/useFavourites";
 
-// const favourites = [{ _id: 1 }, { _id: 2 }, { _id: 3 }, { _id: 4 }, { _id: 5 }];
-
 const AnimeCard = ({ Name, Cover, DescripTion = "", MALScore, _id }) => {
   const { favourties, setFavourites } = useFavourites();
   const isFavourite = favourties.some((anime) => anime._id === Number(_id));
 
-  const handleFavourites = (e) => {
+  const handleFavourites = () => {
     if (isFavourite) {
       setFavourites((prev) => prev.filter((anime) => anime._id !== _id));
     } else {
