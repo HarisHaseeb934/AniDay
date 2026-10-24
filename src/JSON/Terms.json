@@ -1,0 +1,153 @@
+[
+  { "type": "h1", "text": "Terms of Service" },
+  { "type": "meta", "text": "Last Updated: October 24, 2026" },
+  {
+    "type": "p",
+    "text": "Welcome to Website Name (\"we,\" \"us,\" or \"our\"). These Terms of Service (\"Terms\") govern your access to and use of our website, located at Website URL, and all associated features, media, and services (collectively, the \"Services\")."
+  },
+  {
+    "type": "p",
+    "text": "By accessing or using the Services, you agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, do not use the Services."
+  },
+
+  { "type": "h2", "text": "1. Description of Services" },
+  {
+    "type": "p",
+    "text": "Website Name is an online platform dedicated to anime, manga, and related media culture. The Services may include news, editorial reviews, guides, discussion forums, media embeds, character/episode databases, and community features. The Services are provided for your personal, non-commercial entertainment and informational use only."
+  },
+
+  { "type": "h2", "text": "2. Eligibility" },
+  {
+    "type": "p",
+    "text": "You must be at least 13 years of age (or the minimum legal age required in your jurisdiction) to access or register an account on the Services. By accessing the platform, you represent and warrant that you meet this requirement."
+  },
+
+  { "type": "h2", "text": "3. User Accounts" },
+  {
+    "type": "p",
+    "text": "To access specific features (such as commenting, forums, or watchlists), you may need to register an account. You agree to:"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Provide accurate and complete registration information.",
+      "Maintain the confidentiality of your login credentials.",
+      "Accept responsibility for all activity that occurs under your account.",
+      "Notify us immediately of any unauthorized access or security breach."
+    ]
+  },
+  {
+    "type": "p",
+    "text": "We reserve the right to suspend or terminate accounts that violate these Terms or disrupt community operations."
+  },
+
+  { "type": "h2", "text": "4. Intellectual Property & Fair Use" },
+  { "type": "h3", "text": "A. Our Content" },
+  {
+    "type": "p",
+    "text": "All original layout, designs, text, code, graphics, branding, and proprietary assets on the platform are owned by or licensed to [Website Name] and are protected under copyright and trademark laws."
+  },
+  { "type": "h3", "text": "B. Third-Party Anime & Media Rights" },
+  {
+    "type": "p",
+    "text": "All anime titles, character art, screenshots, trailers, promotional stills, names, and related intellectual property are the exclusive trademarks and copyrights of their respective creators, animation studios, production committees, and publishers."
+  },
+  {
+    "type": "p",
+    "text": "[Website Name] is an independent platform and is not officially affiliated with, endorsed by, or sponsored by any animation studio, creator, or licensor unless expressly stated. Any display of third-party copyrighted material is utilized strictly for commentary, criticism, news reporting, analysis, and educational reference under the principles of fair use."
+  },
+
+  { "type": "h2", "text": "5. User Conduct and Content" },
+  {
+    "type": "p",
+    "text": "If the Services permit you to submit content (comments, forum posts, reviews, images, or profiles), you agree that you will not post or transmit content that:"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Infringes any copyright, patent, trademark, or trade secret of any third party.",
+      "Contains malicious code, viruses, automated scrapers, or exploits intended to harm the website infrastructure.",
+      "Constitutes harassment, hate speech, defamation, threats, or unsolicited commercial advertising (spam).",
+      "Depicts or promotes sexually explicit, non-consensual, or unlawful material involving real minors."
+    ]
+  },
+  {
+    "type": "p",
+    "text": "You retain ownership of any original text or media you submit, but you grant [Website Name] a worldwide, perpetual, royalty-free license to host, display, reproduce, and distribute such user submissions on the platform."
+  },
+
+  { "type": "h2", "text": "6. Copyright Infringement & DMCA Notice" },
+  {
+    "type": "p",
+    "text": "We respect the intellectual property rights of creators and copyright holders and comply with the provisions of the Digital Millennium Copyright Act (\"DMCA\")."
+  },
+  {
+    "type": "p",
+    "text": "If you are a copyright owner or an agent thereof and believe that any content hosted on our Services infringes upon your copyright, you may submit a formal notification with the following details:"
+  },
+  {
+    "type": "ol",
+    "items": [
+      "Identification of the copyrighted work claimed to have been infringed.",
+      "Identification of the material that is claimed to be infringing (including direct URLs).",
+      "Your contact information (name, address, telephone number, and email address).",
+      "A statement affirming that you have a good-faith belief that use of the material is unauthorized.",
+      "A statement made under penalty of perjury that the information in your notification is accurate and that you are authorized to act on behalf of the owner.",
+      "A physical or electronic signature of the authorized person."
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Send copyright notifications to:\nDMCA Agent: [Name / Agent Title]\nEmail: [legal@yourdomain.com]\nMailing Address: [Your Physical or Mailing Address]"
+  },
+
+  { "type": "h2", "text": "7. Third-Party Links & External Embeds" },
+  {
+    "type": "p",
+    "text": "The Services may contain links, embeds, or references to third-party websites (such as external streaming platforms, merchandise shops, or promotional video hosts). We do not control, endorse, or assume responsibility for the content, privacy practices, or terms of any third-party services. You access third-party platforms entirely at your own risk."
+  },
+
+  { "type": "h2", "text": "8. Disclaimer of Warranties" },
+  {
+    "type": "p",
+    "text": "THE SERVICES ARE PROVIDED ON AN \"AS IS\" AND \"AS AVAILABLE\" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DISCLAIM ALL WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT GUARANTEE THAT THE WEBSITE WILL BE SECURE, UNINTERRUPTED, OR FREE OF ERRORS OR OUTAGES."
+  },
+
+  { "type": "h2", "text": "9. Limitation of Liability" },
+  {
+    "type": "p",
+    "text": "TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, [WEBSITE NAME], ITS OPERATORS, AFFILIATES, AND AGENTS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF YOUR USE OF OR INABILITY TO USE THE SERVICES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES."
+  },
+
+  { "type": "h2", "text": "10. Termination" },
+  {
+    "type": "p",
+    "text": "We reserve the right, without prior notice or liability, to suspend, terminate, or restrict your access to all or part of the Services for any reason, including without limitation a breach of these Terms."
+  },
+
+  { "type": "h2", "text": "11. Governing Law" },
+  {
+    "type": "p",
+    "text": "These Terms shall be governed by and construed in accordance with the laws of [Your Country / State / Jurisdiction], without regard to its conflict of law principles."
+  },
+
+  { "type": "h2", "text": "12. Modifications to Terms" },
+  {
+    "type": "p",
+    "text": "We reserve the right to revise or update these Terms at any time. When updates are published, the \"Last Updated\" date at the top will be updated accordingly. Continued use of the platform after modifications become effective constitutes acceptance of the revised Terms."
+  },
+
+  { "type": "h2", "text": "13. Contact Information" },
+  {
+    "type": "p",
+    "text": "For questions regarding these Terms or the platform, contact:"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Platform Name: Website Name",
+      "Email: support@yourdomain.com",
+      "Contact Page: Website URL/contact"
+    ]
+  }
+]

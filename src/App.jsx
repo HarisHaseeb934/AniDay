@@ -9,6 +9,7 @@ import Loading from "./components/Loading";
 import ErrorPage from "./pages/ErrorPage";
 import Watchlist from "./pages/Watchlist";
 import { Favourites } from "./customeHooks/useFavourites";
+import Terms from "./pages/Terms";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/watchlist",
         element: <Watchlist />,
+      },
+      {
+        path: "/terms-of-services",
+        element: <Terms />,
       },
     ],
   },

@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 import FooterLinks from "../components/FooterLinks";
 
 const QUICK_LINKS = [
-  { title: "Index", url: "/index" },
-  { title: "Home", url: "/home" },
-  { title: "Airing", url: "/airing" },
+  { title: "Index", url: "/" },
+  { title: "Home", url: "/" },
+  // { title: "Airing", url: "/airing" },
   { title: "Recent", url: "/recent" },
-  { title: "API", url: "https://api.anipub.xyz/?ref=freepublicapis.com#" },
+  { title: "API", url: "https://api.anipub.org/" },
   { title: "Sitemaps", url: "/sitemaps" },
 ];
 const COMMUNITY = [
@@ -21,7 +21,7 @@ const COMMUNITY = [
 const LEGAL = [
   { title: "About Us", url: "#" },
   { title: "Privacy Policy", url: "#" },
-  { title: "Terms of Service", url: "#" },
+  { title: "Terms of Service", url: "terms-of-services" },
   { title: "Contact", url: "#" },
 ];
 
@@ -42,13 +42,15 @@ const Footer = () => {
             Ad-free, open-source, and community-driven.
           </p>
           <div className="flex gap-5">
-            <NavLink
+            <a
+              href={'https://github.com/HarisHaseeb934/AniDay'}
+              target="_blank"
               className={`border-anime-cyan border rounded-full bg-anime-cyan group hover:bg-anime-text transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1`}
             >
               <FaGithub
                 className={`text-anime-bg group-hover:text-anime-cyan text-lg md:text-2xl lg:text-4xl`}
               />
-            </NavLink>
+            </a>
             <NavLink
               className={`border-anime-cyan border rounded-full bg-anime-cyan group hover:bg-anime-text transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1`}
             >
@@ -59,7 +61,7 @@ const Footer = () => {
           </div>
         </div>
         <FooterLinks heading={`Quick Links`} links={QUICK_LINKS} />
-        <FooterLinks heading={`Community`} links={COMMUNITY} />
+        {/* <FooterLinks heading={`Community`} links={COMMUNITY} /> */}
         <FooterLinks heading={`Legal`} links={LEGAL} />
       </div>
       <p className="text-center text-slate-300 pt-6 text-xs md:text-base">
