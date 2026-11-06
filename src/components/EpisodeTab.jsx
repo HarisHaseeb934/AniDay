@@ -2,7 +2,7 @@ import { IoIosStar } from "react-icons/io";
 import { FaClock } from "react-icons/fa";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { IoInformationCircle } from "react-icons/io5";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const EpisodeTab = ({ data, currentEpisode, language, setLanguage, _id }) => {
   const navigate = useNavigate();

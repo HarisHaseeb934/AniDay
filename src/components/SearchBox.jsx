@@ -93,6 +93,10 @@ const SearchBox = () => {
                       <img
                         src={res?.Image}
                         className="w-[50px] h-[70px] object-cover"
+                        onError={(e) => {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.src = '/fallback.png'
+                        }}
                         loading={i < 4 ? "eager" : "lazy"}
                         fetchpriority={i < 4 ? "high" : "low"}
                       />
