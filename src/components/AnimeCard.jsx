@@ -9,6 +9,8 @@ const AnimeCard = ({ Name, Cover, DescripTion = "", MALScore, _id }) => {
   const [coverImage, setCoverImage] = useState(Cover)
   const isFavourite = favourties.some((anime) => anime._id === Number(_id));
 
+  console.log(Name + " " + coverImage)
+
   const handleFavourites = () => {
     if (isFavourite) {
       setFavourites((prev) => prev.filter((anime) => anime._id !== _id));
@@ -47,7 +49,7 @@ const AnimeCard = ({ Name, Cover, DescripTion = "", MALScore, _id }) => {
           alt=""
           onError={(e) => {
             e.currentTarget.onerror = null;
-            e.currentTarget.src = "fallback.png";
+            e.currentTarget.src = "/fallback.png";
           }}
           className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-300 ease-in-out"
         />
