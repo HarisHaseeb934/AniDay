@@ -28,21 +28,24 @@ export const Player = () => {
     staleTime: 5000,
   });
 
+  console.log(data)
+
   useEffect(() => {
-    
-    if(hash){
+    if (hash) {
       setTimeout(() => {
-        const id = hash.replace("#","")
-        const element = document.getElementById(id)
+        const id = hash.replace("#", "");
+        const element = document.getElementById(id);
 
         element.scrollIntoView({
           behavior: "smooth",
-        })
-      },100)
-
-
+        });
+      }, 100);
     }
-  }, [hash])
+  }, [hash]);
+
+  useEffect(() => {
+    document.title = data?.local?.Name || "AniDay";
+  }, [data]);
 
   const episodes = [
     ...(data?.local?.link !== undefined
@@ -80,7 +83,7 @@ export const Player = () => {
         </div>
       </div>
       <Details data={data} />
-      <Sort forHome = {true} recommendation={data?.local.Genres[0]} />
+      <Sort forHome={true} recommendation={data?.local.Genres[0]} />
     </div>
   );
 };

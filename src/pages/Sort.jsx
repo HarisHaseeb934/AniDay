@@ -6,6 +6,7 @@ import { NavLink, useParams } from "react-router-dom";
 import AnimeCard from "../components/AnimeCard";
 import Heading from "../components/Heading";
 import Loading from "../components/Loading";
+import { useTitle } from "../customeHooks/useTitle";
 
 const Sort = ({ forHome = false, recommendation }) => {
   const { paramGenre } = useParams();
@@ -34,6 +35,8 @@ const Sort = ({ forHome = false, recommendation }) => {
       left: 0,
     });
   }, [page]);
+
+  useTitle('Browse')
 
   if (isLoading) return <Loading />;
   if (isError) return <p>Something Went Wrong</p>;
