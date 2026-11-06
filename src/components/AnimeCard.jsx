@@ -2,9 +2,11 @@ import StarRating from "./StarRating";
 import { FaHeart } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import useFavourites from "../customeHooks/useFavourites";
+import { useEffect, useState } from "react";
 
 const AnimeCard = ({ Name, Cover, DescripTion = "", MALScore, _id }) => {
   const { favourties, setFavourites } = useFavourites();
+  const [coverImage, setCoverImage] = useState(Cover)
   const isFavourite = favourties.some((anime) => anime._id === Number(_id));
 
   const handleFavourites = () => {
@@ -17,6 +19,10 @@ const AnimeCard = ({ Name, Cover, DescripTion = "", MALScore, _id }) => {
       ]);
     }
   };
+
+  useEffect(() => {
+    setCoverImage(Cover)
+  }, [Cover])
 
   return (
     <div className="rounded-xl relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ease-in-out hove:li hover:border-anime-cyan hover:border">
@@ -37,7 +43,7 @@ const AnimeCard = ({ Name, Cover, DescripTion = "", MALScore, _id }) => {
       </button>
       <div className="h-[250px] overflow-hidden">
         <img
-          src={Cover}
+          src={coverImage}
           alt=""
           onError={(e) => {
             e.currentTarget.onerror = null;

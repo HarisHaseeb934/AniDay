@@ -4,8 +4,7 @@ import { useDebounce } from "../customeHooks/useDebounce";
 import { useQuery } from "@tanstack/react-query";
 import { getSearchData } from "../api/axiosInstance";
 import { RxCross2 } from "react-icons/rx";
-import AnimeCard from "./AnimeCard";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SearchBox = () => {
   const [search, setSearch] = useState("");
@@ -29,7 +28,7 @@ const SearchBox = () => {
 
   useEffect(() => {
     const handleModal = (e) => {
-      if (modalRef && !modalRef.current.contains(event.target)) {
+      if (modalRef && !modalRef.current.contains(e.target)) {
         setIsOpen(false);
       }
     };
@@ -41,6 +40,7 @@ const SearchBox = () => {
 
   const handleNavigate = (id) => {
     setIsOpen(false);
+    setSearch("")
     navigate(`/AniPlayer/${id}?episode=1`);
   };
 
@@ -70,13 +70,6 @@ const SearchBox = () => {
             <RxCross2 className="text-lg text-anime-text  " />
           </button>
         )}
-        {/* <button
-          className="p-1 size-5 sm:size-7 flex items-center justify-center bg-anime-cyan rounded-full ml-2"
-          type="submit"
-        >
-          <IoIosSearch className="text-lg text-anime-text  " />
-        </button> */}
-
         <div className="p-1 size-5 sm:size-7 flex items-center justify-center bg-anime-cyan rounded-full ml-2">
           <IoIosSearch className="text-lg text-anime-text  " />
         </div>
