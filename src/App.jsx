@@ -10,6 +10,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Watchlist from "./pages/Watchlist";
 import { Favourites } from "./customeHooks/useFavourites";
 import Terms from "./pages/Terms";
+import { useEffect } from "react";
 
 const router = createBrowserRouter([
   {
